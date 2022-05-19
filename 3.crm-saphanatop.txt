@@ -1,0 +1,8 @@
+primitive rsc_SAPHanaTopology_HA1_HDB10 ocf:suse:SAPHanaTopology \
+        operations $id=rsc_sap2_HA1_HDB10-operations \
+        op monitor interval=10 timeout=600 \
+        op start interval=0 timeout=600 start-delay=10 \
+        op stop interval=0 timeout=300 \
+        params SID=HA1 InstanceNumber=10
+clone cln_SAPHanaTopology_HA1_HDB10 rsc_SAPHanaTopology_HA1_HDB10 \
+        meta clone-node-max=1 interleave=true

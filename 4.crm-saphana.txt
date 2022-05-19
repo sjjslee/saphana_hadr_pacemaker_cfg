@@ -1,0 +1,10 @@
+primitive rsc_SAPHana_HA1_HDB10 ocf:suse:SAPHana \
+        operations $id=rsc_sap_HA1_HDB10-operations \
+        op start interval=0 timeout=3600 \
+        op stop interval=0 timeout=3600 \
+        op promote interval=0 timeout=3600 \
+        op monitor interval=60 role=Master timeout=700 \
+        op monitor interval=61 role=Slave timeout=700 \
+        params SID=HA1 InstanceNumber=10 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false
+ms msl_SAPHana_HA1_HDB10 rsc_SAPHana_HA1_HDB10 \
+        meta clone-max=2 clone-node-max=1 interleave=true

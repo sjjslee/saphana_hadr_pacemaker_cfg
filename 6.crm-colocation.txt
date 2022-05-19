@@ -1,0 +1,4 @@
+colocation col_saphana_ip_HA1_HDB10 2000: rsc_ip_HA1_HDB10:Started \
+        msl_SAPHana_HA1_HDB10:Master
+order ord_SAPHana_HA1_HDB10 Optional: cln_SAPHanaTopology_HA1_HDB10 \
+        msl_SAPHana_HA1_HDB10
