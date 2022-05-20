@@ -1,3 +1,0 @@
-primitive stonith-sbd stonith:external/sbd \
-     params pcmk_delay_max="20" \
-     op monitor interval="20" timeout="20"
